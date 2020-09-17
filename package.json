@@ -1,0 +1,6 @@
+{
+  "name": "Json_basics",
+  "version": 1.9,
+  "number": 12,
+  "array":["apple","melon", "orange"]
+}
