@@ -24,11 +24,13 @@ private:
     char buffer[65536];
     //used to describe all fields in json object
     const std::vector<const char *> testJsonFields;
+    const std::vector<const char *> objectFields;
 
 public:
 
     JsonManager()
-            : testJsonFields({"name", "version", "number", "array"}) {
+            : testJsonFields({"name", "version", "number", "array"}),
+              objectFields({"name", "age", "position"}) {
 
     }
 

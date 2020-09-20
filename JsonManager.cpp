@@ -29,6 +29,7 @@ void JsonManager::show_data() {
     for (auto fieldname : testJsonFields) {
         if (!document.HasMember(fieldname)) {
             cerr << "Can`t find field: " << fieldname << endl;
+            return;
         }
     }
 
@@ -50,4 +51,22 @@ void JsonManager::show_data() {
         cout<<array[i].GetString()<<endl;
     }
 
+    //Work with object is very similar to previous work with array
+    //Asserting that "object" is an object and we have access to the fields
+    assert(document["object"].IsObject());
+    //Asserting that object has all fields. If not -> showing error.
+    for(auto objFieldName : objectFields){
+        if(!document["object"].HasMember(objFieldName)){
+            cerr << "Can`t find field in \"object\": " << objFieldName << endl;
+            return;
+        }
+    }
+
+    //Using a reference for consecutive access
+    const rapidjson::Value &object = document["object"];
+    cout<<"Object: "<<endl;
+    //Using cycle for to access to object field values
+    for(int i = 0; i < objectFields.size(); i++){
+        cout<<"\t"<<object[objectFields.at(i)].GetString()<<endl;
+    }
 }

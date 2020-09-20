@@ -2,5 +2,10 @@
   "name": "Json_basics",
   "version": 1.9,
   "number": 12,
-  "array":["apple","melon", "orange"]
+  "array":["apple","melon", "orange"],
+  "object": {
+    "name": "Person",
+    "age": "32",
+    "position" : "Company CEO"
+  }
 }
