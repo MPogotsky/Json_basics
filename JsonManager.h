@@ -4,22 +4,21 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 #include "rapidjson.h"
 #include "rapidjson/document.h"
 #include "rapidjson/istreamwrapper.h"
 #include "rapidjson/filewritestream.h"
 #include "rapidjson/filereadstream.h"
-
-struct user {
-    std::string name;
-    std::string city;
-    int age;
-};
+#include "rapidjson/stringbuffer.h"
+#include "rapidjson/writer.h"
 
 class JsonManager {
 private:
+
     rapidjson::Document document;
+
     FILE *fp;
     char buffer[65536];
     //used to describe all fields in json object
@@ -30,13 +29,15 @@ public:
 
     JsonManager()
             : testJsonFields({"name", "version", "number", "array"}),
-              objectFields({"name", "age", "position"}) {
+              objectFields({"name", "age", "position"}){
 
     }
 
     void get_object_from_file();
 
     void show_data();
+
+    void file_input();
 };
 
 

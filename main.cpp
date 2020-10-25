@@ -1,4 +1,3 @@
-#include <iostream>
 #include "JsonManager.h"
 
 int main() {
@@ -6,6 +5,7 @@ int main() {
 
     json.get_object_from_file();
     json.show_data();
+    json.file_input();
 
     return 0;
 }
